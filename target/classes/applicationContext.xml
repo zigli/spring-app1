@@ -7,9 +7,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="testBean"
-          class="cf.tilgiz.spring.TestBean">
-        <constructor-arg value="ilgiz"/>
+    <bean id="musicBean"
+          class="cf.tilgiz.spring.PopMusic">
+
     </bean>
 
 </beans>
