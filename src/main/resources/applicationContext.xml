@@ -12,7 +12,7 @@
     </bean>
     <bean id="musicPlayer"
         class="cf.tilgiz.spring.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <property name="music" ref="musicBean"/>
     </bean>
 
 </beans>
