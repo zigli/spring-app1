@@ -4,6 +4,13 @@ package cf.tilgiz.spring;
  * @author Ilgiz Tukhvatov
  */
 public class ClassicalMusic implements Music {
+
+    private ClassicalMusic(){}
+
+    public static ClassicalMusic createByFactoryMethod(){
+        return new ClassicalMusic();
+    }
+
     @Override
     public String getSong() {
         return "Hungarina Rhapsody";

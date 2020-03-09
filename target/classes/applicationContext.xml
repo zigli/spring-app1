@@ -11,6 +11,7 @@
 
     <bean id="musicBeanClassical"
           class="cf.tilgiz.spring.ClassicalMusic"
+          factory-method="createByFactoryMethod"
           init-method="doMyInitClassicalMusic"
           destroy-method="doMyDestroyClassicalMusic">
     </bean>
