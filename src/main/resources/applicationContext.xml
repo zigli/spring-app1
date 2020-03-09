@@ -19,7 +19,8 @@
           class="cf.tilgiz.spring.RockMusic">
     </bean>
     <bean id="musicPlayer"
-          class="cf.tilgiz.spring.MusicPlayer">
+          class="cf.tilgiz.spring.MusicPlayer"
+          scope="prototype">
         <property name="musicList">
             <list value-type="cf.tilgiz.spring.Music">
                 <ref bean="musicBeanClassical"/>

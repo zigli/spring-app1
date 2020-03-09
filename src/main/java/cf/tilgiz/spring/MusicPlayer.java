@@ -41,4 +41,9 @@ public class MusicPlayer {
             System.out.println("Playing: " + musicItem.getSong());
         }
     }
+
+    @Override
+    public String toString() {
+       return musicList.toString();
+    }
 }
