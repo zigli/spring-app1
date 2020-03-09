@@ -1,10 +1,18 @@
 package cf.tilgiz.spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 
 /**
  * @author Ilgiz Tukhvatov
  */
+@Component
+@Scope(scopeName = "prototype")
 public class MusicPlayer {
     private List<Music> musicList;
     private String name;
@@ -32,6 +40,7 @@ public class MusicPlayer {
 
     public MusicPlayer() {}
 
+    @Autowired()
     public void setMusicList (List<Music> musicList) {
         this.musicList = musicList;
     }
@@ -47,10 +56,12 @@ public class MusicPlayer {
        return musicList.toString();
     }
 
+    @PostConstruct
     public void doInitMusicPlayer(){
         System.out.println("Do my initialization of MusicPlayer");
     }
 
+    @PreDestroy
     public void doDestroyMusicPlayer(){
         System.out.println("Destroying MusicPlayer...");
     }

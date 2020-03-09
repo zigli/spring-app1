@@ -1,8 +1,14 @@
 package cf.tilgiz.spring;
 
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 /**
  * @author Ilgiz Tukhvatov
  */
+@Component
 public class ClassicalMusic implements Music {
 
     private ClassicalMusic(){}
@@ -16,10 +22,12 @@ public class ClassicalMusic implements Music {
         return "Hungarina Rhapsody";
     }
 
+    @PostConstruct
     public void doMyInitClassicalMusic(){
         System.out.println("Do my initialization ClassicalMusic");
     }
 
+    @PreDestroy
     public void doMyDestroyClassicalMusic(){
         System.out.println("Destroying ClassicalMusic...");
     }

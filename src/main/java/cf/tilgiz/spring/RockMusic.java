@@ -1,10 +1,12 @@
 package cf.tilgiz.spring;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import sun.misc.Contended;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.beans.ConstructorProperties;
 
 /**
  * @author Ilgiz Tukhvatov

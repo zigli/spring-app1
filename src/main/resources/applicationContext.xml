@@ -10,33 +10,6 @@
     <context:property-placeholder location="classpath:musicplayer.properties"/>
     <context:component-scan base-package="cf.tilgiz.spring"/>
 
-    <bean id="musicBeanClassical"
-          class="cf.tilgiz.spring.ClassicalMusic"
-          factory-method="createByFactoryMethod"
-          init-method="doMyInitClassicalMusic"
-          destroy-method="doMyDestroyClassicalMusic">
-    </bean>
-    <bean id="musicBeanPop"
-          class="cf.tilgiz.spring.PopMusic"
-          init-method="doMyInitPopMusic"
-          destroy-method="doMyDestroyPopMusic">
-    </bean>
 
-    <bean id="musicPlayer"
-          class="cf.tilgiz.spring.MusicPlayer"
-          scope="prototype"
-          init-method="doInitMusicPlayer"
-          destroy-method="doDestroyMusicPlayer">
-        <property name="musicList">
-            <list value-type="cf.tilgiz.spring.Music">
-                <ref bean="musicBeanClassical"/>
-                <ref bean="musicBeanRock"/>
-                <ref bean="musicBeanPop"/>
-            </list>
-        </property>
-
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="100"/>
-    </bean>
 
 </beans>
