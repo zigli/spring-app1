@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:property-placeholder location="classpath:musicplayer.properties"/>
-
+    <context:component-scan base-package="cf.tilgiz.spring"/>
     <bean id="musicBeanClassical"
           class="cf.tilgiz.spring.ClassicalMusic"
           factory-method="createByFactoryMethod"
@@ -20,11 +20,7 @@
           init-method="doMyInitPopMusic"
           destroy-method="doMyDestroyPopMusic">
     </bean>
-    <bean id="musicBeanPock"
-          class="cf.tilgiz.spring.RockMusic"
-          init-method="doMyInitRockMusic"
-          destroy-method="doMyDestroyRockMusic">
-    </bean>
+
     <bean id="musicPlayer"
           class="cf.tilgiz.spring.MusicPlayer"
           scope="prototype"
@@ -33,7 +29,7 @@
         <property name="musicList">
             <list value-type="cf.tilgiz.spring.Music">
                 <ref bean="musicBeanClassical"/>
-                <ref bean="musicBeanPock"/>
+                <ref bean="musicBeanRock"/>
                 <ref bean="musicBeanPop"/>
             </list>
         </property>

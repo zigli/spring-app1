@@ -1,19 +1,29 @@
 package cf.tilgiz.spring;
 
+import org.springframework.stereotype.Component;
+import sun.misc.Contended;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 /**
  * @author Ilgiz Tukhvatov
  */
-public class RockMusic implements Music{
+@Component("musicBeanRock")
+public class RockMusic implements Music {
 
     @Override
     public String getSong() {
         return "Wind cries Mary";
     }
-    public void doMyInitRockMusic(){
+
+    @PostConstruct
+    public void doMyInitRockMusic() {
         System.out.println("Do my initialization RockMusic");
     }
 
-    public void doMyDestroyRockMusic(){
+    @PreDestroy
+    public void doMyDestroyRockMusic() {
         System.out.println("Destroying RockMusic...");
     }
 }
