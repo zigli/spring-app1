@@ -9,14 +9,25 @@
 
     <context:property-placeholder location="classpath:musicplayer.properties"/>
 
-    <bean id="musicBean"
+    <bean id="musicBeanClassical"
           class="cf.tilgiz.spring.ClassicalMusic">
     </bean>
-    <bean id="musicPlayer"
-          class="cf.tilgiz.spring.MusicPlayer">
-        <property name="music" ref="musicBean"/>
+    <bean id="musicBeanPop"
+          class="cf.tilgiz.spring.PopMusic">
+    </bean>
+    <bean id="musicBeanPock"
+          class="cf.tilgiz.spring.RockMusic">
+    </bean>
+    <bean id="musicPlayer" class="cf.tilgiz.spring.MusicPlayer">
+        <property name="musicList">
+            <list value-type="cf.tilgiz.spring.Music">
+                <ref bean="musicBeanClassical"/>
+                <ref bean="musicBeanPock"/>
+                <ref bean="musicBeanPop"/>
+            </list>
+        </property>
 
-        <property name="name" value="${musicplayer.name}"/>
+        <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="100"/>
     </bean>
 

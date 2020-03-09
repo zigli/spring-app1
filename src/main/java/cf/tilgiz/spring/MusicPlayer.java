@@ -1,15 +1,17 @@
 package cf.tilgiz.spring;
 
+import java.util.List;
+
 /**
  * @author Ilgiz Tukhvatov
  */
 public class MusicPlayer {
-    private Music music;
+    private List<Music> musicList;
     private String name;
     private int volume;
 
-    public Music getMusic() {
-        return music;
+    public List<Music> getMusic() {
+        return musicList;
     }
 
     public String getName() {
@@ -28,14 +30,15 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    //IoC
     public MusicPlayer() {}
 
-    public void setMusic(Music music) {
-        this.music = music;
+    public void setMusicList (List<Music> musicList) {
+        this.musicList = musicList;
     }
 
     void playMusic(){
-        System.out.println("Playing: " + music.getSong());
+        for (Music musicItem: musicList ) {
+            System.out.println("Playing: " + musicItem.getSong());
+        }
     }
 }
