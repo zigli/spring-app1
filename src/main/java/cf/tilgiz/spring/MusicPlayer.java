@@ -46,4 +46,12 @@ public class MusicPlayer {
     public String toString() {
        return musicList.toString();
     }
+
+    public void doInitMusicPlayer(){
+        System.out.println("Do my initialization of MusicPlayer");
+    }
+
+    public void doDestroyMusicPlayer(){
+        System.out.println("Destroying MusicPlayer...");
+    }
 }

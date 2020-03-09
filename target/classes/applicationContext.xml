@@ -10,17 +10,25 @@
     <context:property-placeholder location="classpath:musicplayer.properties"/>
 
     <bean id="musicBeanClassical"
-          class="cf.tilgiz.spring.ClassicalMusic">
+          class="cf.tilgiz.spring.ClassicalMusic"
+          init-method="doMyInitClassicalMusic"
+          destroy-method="doMyDestroyClassicalMusic">
     </bean>
     <bean id="musicBeanPop"
-          class="cf.tilgiz.spring.PopMusic">
+          class="cf.tilgiz.spring.PopMusic"
+          init-method="doMyInitPopMusic"
+          destroy-method="doMyDestroyPopMusic">
     </bean>
     <bean id="musicBeanPock"
-          class="cf.tilgiz.spring.RockMusic">
+          class="cf.tilgiz.spring.RockMusic"
+          init-method="doMyInitRockMusic"
+          destroy-method="doMyDestroyRockMusic">
     </bean>
     <bean id="musicPlayer"
           class="cf.tilgiz.spring.MusicPlayer"
-          scope="prototype">
+          scope="prototype"
+          init-method="doInitMusicPlayer"
+          destroy-method="doDestroyMusicPlayer">
         <property name="musicList">
             <list value-type="cf.tilgiz.spring.Music">
                 <ref bean="musicBeanClassical"/>
