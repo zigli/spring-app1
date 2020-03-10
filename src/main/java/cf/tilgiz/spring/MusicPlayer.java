@@ -1,25 +1,28 @@
 package cf.tilgiz.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.List;
+import java.util.Random;
+
+import static cf.tilgiz.spring.MusicType.*;
 
 /**
  * @author Ilgiz Tukhvatov
  */
 @Component
-@Scope(scopeName = "prototype")
 public class MusicPlayer {
-    private List<Music> musicList;
+    private Music music;
     private String name;
     private int volume;
 
-    public List<Music> getMusic() {
-        return musicList;
+    public Music getMusic() {
+        return music;
     }
 
     public String getName() {
@@ -38,22 +41,38 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    public MusicPlayer() {}
+    @Autowired
 
-    @Autowired()
-    public void setMusicList (List<Music> musicList) {
-        this.musicList = musicList;
+    public MusicPlayer(@Qualifier("musicBeanRock")Music music) {
+        this.music=music;
     }
 
-    void playMusic(){
-        for (Music musicItem: musicList ) {
-            System.out.println("Playing: " + musicItem.getSong());
+    public void setMusic (Music music) {
+        this.music = music;
+    }
+
+    Random random = new Random();
+
+    public String playMusic(MusicType musicType){
+        int i = random.nextInt(3);
+        String returnStr = null;
+        switch (musicType) {
+            case CLASSICAL:
+                returnStr = music.getSong()[i];
+                break;
+            case ROK:
+                returnStr = music.getSong()[i];
+                break;
+            case POP:
+                returnStr = music.getSong()[i];
+                break;
         }
+        return "Random number " + i + ". Playing: " + returnStr;
     }
 
     @Override
     public String toString() {
-       return musicList.toString();
+       return music.toString();
     }
 
     @PostConstruct

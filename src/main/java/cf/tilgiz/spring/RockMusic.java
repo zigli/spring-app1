@@ -14,9 +14,11 @@ import java.beans.ConstructorProperties;
 @Component("musicBeanRock")
 public class RockMusic implements Music {
 
+    private String[] songs = {"Rock music 1", "Rock music 2", "Rock music 3"};
+
     @Override
-    public String getSong() {
-        return "Wind cries Mary";
+    public String[] getSong() {
+        return songs;
     }
 
     @PostConstruct

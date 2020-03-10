@@ -10,9 +10,12 @@ import javax.annotation.PreDestroy;
  */
 @Component
 public class PopMusic implements Music {
+
+    private String[] songs = {"Pop music 1", "Pop music 2", "Pop music 3"};
+
     @Override
-    public String getSong() {
-        return "Hello";
+    public String[] getSong() {
+        return songs;
     }
 
     @PostConstruct

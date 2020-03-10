@@ -11,6 +11,7 @@ import javax.annotation.PreDestroy;
 @Component
 public class ClassicalMusic implements Music {
 
+    private String[] songs = {"Classical music 1", "Classical music 2", "Classical music 3"};
     private ClassicalMusic(){}
 
     public static ClassicalMusic createByFactoryMethod(){
@@ -18,8 +19,8 @@ public class ClassicalMusic implements Music {
     }
 
     @Override
-    public String getSong() {
-        return "Hungarina Rhapsody";
+    public String[] getSong() {
+        return songs;
     }
 
     @PostConstruct

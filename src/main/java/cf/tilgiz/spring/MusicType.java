@@ -3,6 +3,6 @@ package cf.tilgiz.spring;
 /**
  * @author Ilgiz Tukhvatov
  */
-public interface Music {
-    String[] getSong();
+public enum MusicType {
+    CLASSICAL, ROK, POP
 }
