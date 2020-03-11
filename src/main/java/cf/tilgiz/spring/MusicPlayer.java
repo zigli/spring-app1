@@ -2,6 +2,7 @@ package cf.tilgiz.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +18,9 @@ import static cf.tilgiz.spring.MusicType.*;
  */
 @Component
 public class MusicPlayer {
+
     private Music music;
+    @Value("${musicPlayer.name}")
     private String name;
     private int volume;
 
@@ -42,7 +45,6 @@ public class MusicPlayer {
     }
 
     @Autowired
-
     public MusicPlayer(@Qualifier("musicBeanRock")Music music) {
         this.music=music;
     }
